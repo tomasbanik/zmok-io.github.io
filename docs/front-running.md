@@ -44,7 +44,7 @@ const txData = {
 
 /** Signs the given transaction data and sends it. Abstracts some of the details of
   * buffering and serializing the transaction for web3.
-  * @returns A promise of an object that emits events: transactionHash, receipt, confirmaton, error
+  * @returns A promise of an object that emits events: transactionHash, receipt, confirmation, error
 */
 const sendRawTransaction = txData =>
   // get the number of transactions sent so far so we can create a fresh nonce

@@ -2,7 +2,7 @@
 > Unlimited, Fast, Fault Tolerant Ethereum JSON-RPC/WS API
 
 ## Getting Started
-Getting started with ZMOK (https://zmok.io) takes just a few minutes once you’ve  [connect your wallet](https://zmok.io/wallet).
+Getting started with ZMOK (https://zmok.io) takes just a few minutes once you’ve  [connected your wallet](https://zmok.io/wallet).
 
 Seamlessly access Ethereum via the ZMOK load-balanced nodes and smart architecture the same way you would via your own nodes. We have built services and APIs around [JSON RPC](https://github.com/ethereum/wiki/wiki/JSON-RPC) over HTTPS that you can use with your favorite libraries and frameworks, on Ethereum networks - Mainnet, Ropsten, Rinkeby and Mainnet enhanced with Front-running.
 
@@ -117,7 +117,7 @@ $ wscat -c wss://api.zmok.io/mainnet/YOUR-APP-ID
 ## Archive data
 Archive nodes are full nodes running with a special option known as "archive mode". Archive nodes have all the historical data of the blockchain since the genesis block. If you have a need for data from blocks before the last 128 blocks, you’ll want to access an archive node. For example, to use calls like eth_getBalance of an ancient address will only be possible with an archive node, to interact with smart contracts deployed much earlier in the blockchain, etc.
 
-?> **INFO: Archive calls are available for all users and packages. Supported networks are: MAINNET, RINKEBY, ROPSTEN. <br/><br/>Mainnet FRONT-RUNNING (FR) endpoints does not support archive calls, because the FR nodes are optimized for performance and contains only the pruned data.**
+?> **INFO: Archive calls are available for all users and packages. Supported networks are: MAINNET, RINKEBY, ROPSTEN. <br/><br/>Mainnet FRONT-RUNNING (FR) endpoints do not support archive calls, because the FR nodes are optimized for performance and contain only the pruned data.**
 
 
 If you are interested in inspecting historical data (data outside of the most recent 128 blocks) for any of the methods listed below, your request requires access to archive data.

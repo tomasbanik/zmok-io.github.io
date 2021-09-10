@@ -53,7 +53,7 @@ Endpoints:
 ```
 
 ### Fastest block possible
-To get latest block as a first consider using Websocket endpoints with subscribe method "newBlockHeaders".
+To get the latest block as a first consider using Websocket endpoints with subscribe method "newBlockHeaders".
 
 Benchmark of different API providers on how fast they get a new block:
 
