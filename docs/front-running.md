@@ -1,6 +1,8 @@
 ## Front-Running
 
-With ZMOK your transaction may be front-run against the other transactions in the mempool. The front-running is described as the “act of getting a transaction first in line in the execution queue, right before a known future transaction occurs.”
+With ZMOK your transaction may be front-run against the other transactions in the mempool. The front-running is described as the “act of getting a transaction first in line in the execution queue, right before a known future transaction occurs”.
+
+With ZMOK FRONT-RUNNING a new submited transaction is uniquely distributed accross the very large cluster of distributed Ethereum nodes. This ensures that this transaction will be part of the next mined block as fast as possible.
 
 Methods enhanced with Front-Running:
 
@@ -62,4 +64,16 @@ sendRawTransaction(txData).then(result => {
   console.log(result)
   }
 )
+```
+
+## ProviderError: exceeds the configured cap (1.00 ether).
+Users with enabled Front-Running, have also access to endpoints/Geth nodes with preconfigured param --rpc.txfeecap=0, which disable the default max transaction fee. More info: [https://geth.ethereum.org/docs/interface/command-line-options] (https://geth.ethereum.org/docs/interface/command-line-options).
+
+Sample usage:
+
+```sh
+$ curl -X POST \
+-H "Content-Type: application/json" \
+--data '{"jsonrpc": "2.0", "id": 1, "method": "eth_sendRawTransaction", "params": ["0xf867808082520894036d0e47e9844e6d0fb5bd104043599f889fc215880de0b6b3a7640000801ca08095e722b96d9f13f3bf5ac997d7cedbd2c0f82295d47b770faad526b4e7e519a05262eef932e223130d1f72664162b897c6129f0164e0806ed959b9abd6f23a39"]}' \
+"https://api.zmok.io/notxfeecap/YOUR-APP-ID"
 ```

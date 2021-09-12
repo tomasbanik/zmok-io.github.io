@@ -21,10 +21,12 @@ Use one of these endpoints as your Ethereum client provider.
 
 | Network | Endpoint |
 | :---        |    :----   |
-| Mainnet | [https://api.zmok.io/mainnet/YOUR-APP-ID](https://api.zmok.io/mainnet/YOUR-APP-ID)<br/>[wss://api.zmok.io/mainnet/YOUR-APP-ID](wss://api.zmok.io/mainnet/YOUR-APP-ID) |
-| Rinkeby | [https://api.zmok.io/testnet/YOUR-APP-ID](https://api.zmok.io/testnet/YOUR-APP-ID)<br/>[wss://api.zmok.io/testnet/YOUR-APP-ID](wss://api.zmok.io/testnet/YOUR-APP-ID) |
-| Ropsten | [https://api.zmok.io/ropsten/YOUR-APP-ID](https://api.zmok.io/ropsten/YOUR-APP-ID)<br/>[wss://api.zmok.io/ropsten/YOUR-APP-ID](wss://api.zmok.io/ropsten/YOUR-APP-ID) |
-| Mainnet - Front Running | [https://api.zmok.io/fr/YOUR-APP-ID](https://api.zmok.io/fr/YOUR-APP-ID)<br/>[wss://api.zmok.io/fr/YOUR-APP-ID](wss://api.zmok.io/fr/YOUR-APP-ID)|
+| MAINNET | [https://api.zmok.io/mainnet/YOUR-APP-ID](https://api.zmok.io/mainnet/YOUR-APP-ID)<br/>[wss://api.zmok.io/mainnet/YOUR-APP-ID](wss://api.zmok.io/mainnet/YOUR-APP-ID) |
+| MAINNET - ARCHIVE | [https://api.zmok.io/archive/YOUR-APP-ID](https://api.zmok.io/archive/YOUR-APP-ID)<br/>[wss://api.zmok.io/archive/YOUR-APP-ID](wss://api.zmok.io/archive/YOUR-APP-ID)|
+| MAINNET - FRONT RUNNING | [https://api.zmok.io/fr/YOUR-APP-ID](https://api.zmok.io/fr/YOUR-APP-ID)<br/>[wss://api.zmok.io/fr/YOUR-APP-ID](wss://api.zmok.io/fr/YOUR-APP-ID)|
+| MAINNET - RPC.TXFEECAP=0 | [https://api.zmok.io/notxfeecap/YOUR-APP-ID](https://api.zmok.io/notxfeecap/YOUR-APP-ID)<br/>[wss://api.zmok.io/notxfeecap/YOUR-APP-ID](wss://api.zmok.io/notxfeecap/YOUR-APP-ID)|
+| RINKEBY | [https://api.zmok.io/testnet/YOUR-APP-ID](https://api.zmok.io/testnet/YOUR-APP-ID)<br/>[wss://api.zmok.io/testnet/YOUR-APP-ID](wss://api.zmok.io/testnet/YOUR-APP-ID) |
+| ROPSTEN | [https://api.zmok.io/ropsten/YOUR-APP-ID](https://api.zmok.io/ropsten/YOUR-APP-ID)<br/>[wss://api.zmok.io/ropsten/YOUR-APP-ID](wss://api.zmok.io/ropsten/YOUR-APP-ID) |
 
 ## Make Requests
 Below is a quick command line example using curl:
@@ -117,10 +119,10 @@ $ wscat -c wss://api.zmok.io/mainnet/YOUR-APP-ID
 ## Archive data
 Archive nodes are full nodes running with a special option known as "archive mode". Archive nodes have all the historical data of the blockchain since the genesis block. If you have a need for data from blocks before the last 128 blocks, you’ll want to access an archive node. For example, to use calls like eth_getBalance of an ancient address will only be possible with an archive node, to interact with smart contracts deployed much earlier in the blockchain, etc.
 
-?> **INFO: Archive calls are available for all users and packages. Supported networks are: MAINNET, RINKEBY, ROPSTEN. <br/><br/>Mainnet FRONT-RUNNING (FR) endpoints do not support archive calls, because the FR nodes are optimized for performance and contain only the pruned data.**
+?> **INFO: Archive calls are available for all users and packages. Supported networks are: MAINNET ARCHIVE, RINKEBY, ROPSTEN. <br/><br/>MAINNET and MAINNET FRONT-RUNNING (FR) endpoints do not support archive calls, because these endpoints are optimized for performance and their nodes contain only the pruned data.**
 
 
-If you are interested in inspecting historical data (data outside of the most recent 128 blocks) for any of the methods listed below, your request requires access to archive data.
+If you are interested in inspecting historical data (data outside of the most recent 128 blocks), use the following methods:
 
 | Method |
 | ------ |
