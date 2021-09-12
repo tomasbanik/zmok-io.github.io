@@ -67,7 +67,7 @@ sendRawTransaction(txData).then(result => {
 ```
 
 ## ProviderError: exceeds the configured cap (1.00 ether).
-Users with enabled Front-Running, have also access to endpoints/Geth nodes with preconfigured param --rpc.txfeecap=0, which disable the default max transaction fee. More info: [https://geth.ethereum.org/docs/interface/command-line-options] (https://geth.ethereum.org/docs/interface/command-line-options).
+Users with enabled Front-Running, have also access to endpoints/Geth nodes with preconfigured param --rpc.txfeecap=0, which disable the default max transaction fee. More info: https://geth.ethereum.org/docs/interface/command-line-options.
 
 Sample usage:
 
