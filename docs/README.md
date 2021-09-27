@@ -1,7 +1,7 @@
-## ZMOK Documentation
+# ZMOK Documentation
 > Unlimited, Fast, Fault Tolerant Ethereum JSON-RPC/WS API
 
-## Getting Started
+# Getting Started
 Getting started with ZMOK (https://zmok.io) takes just a few minutes once you’ve  [connected your wallet](https://zmok.io/wallet).
 
 Seamlessly access Ethereum via the ZMOK load-balanced nodes and smart architecture the same way you would via your own nodes. We have built services and APIs around [JSON RPC](https://github.com/ethereum/wiki/wiki/JSON-RPC) over HTTPS that you can use with your favorite libraries and frameworks, on Ethereum networks - Mainnet, Ropsten, Rinkeby and Mainnet enhanced with Front-running.
@@ -56,9 +56,6 @@ $ wscat -c wss://api.zmok.io/mainnet/YOUR-APP-ID
 < {"jsonrpc":"2.0","id":1,"result":"0x657abc"}
 ```
 
-
-
-
 ### List of all supported methods
 | Method |
 | ------ |
@@ -96,7 +93,6 @@ $ wscat -c wss://api.zmok.io/mainnet/YOUR-APP-ID
 |net_peerCount|
 |net_version|
 |web3_clientVersion|
-|parity_nextNonce|
 
 ### Filter Methods
 | Method |
@@ -105,6 +101,17 @@ $ wscat -c wss://api.zmok.io/mainnet/YOUR-APP-ID
 |eth_newBlockFilter|
 |eth_getFilterChanges|
 |eth_uninstallFilter|
+
+### Mempool Methods
+Mempool is a waiting area for the transactions that haven't been added to a block and are still unconfirmed. When an Ethereum node receives a transaction, it will propagate the transaction to peer nodes until a miner approves the transaction and adds it to a new block. Before it’s added to the next block, the pending transaction remains in a staging/waiting area called mempool or txpool.
+
+?> **INFO: Mempool methods are available for all users and packages. Supported network is only: MAINNET. <br/><br/>MAINNET ARCHIVE and MAINNET FRONT-RUNNING (FR) endpoints do not support mempool methods.**
+
+| Method |
+| ------ |
+|txpool_content|
+|txpool_inspect|
+|txpool_status|
 
 ### Pub/Sub Websocket Methods
 ?> **NOTE: Ethereum Pub/Sub subscription support is only supported over "stateful" transports such as WebSocket.**
