@@ -1,4 +1,4 @@
-## Front-Running
+# Front-Running
 
 With ZMOK your transaction may be front-run against the other transactions in the mempool. The front-running is described as the “act of getting a transaction first in line in the execution queue, right before a known future transaction occurs”.
 
@@ -66,7 +66,7 @@ sendRawTransaction(txData).then(result => {
 )
 ```
 
-## ProviderError: exceeds the configured cap (1.00 ether).
+# ProviderError: exceeds the configured cap (1.00 ether).
 Users with enabled Front-Running, have also access to endpoints/Geth nodes with preconfigured param --rpc.txfeecap=0, which disable the default max transaction fee. More info: https://geth.ethereum.org/docs/interface/command-line-options.
 
 Sample usage:

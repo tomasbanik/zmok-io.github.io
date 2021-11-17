@@ -6,14 +6,14 @@ Getting started with ZMOK (https://zmok.io) takes just a few minutes once you’
 
 Seamlessly access Ethereum via the ZMOK load-balanced nodes and smart architecture the same way you would via your own nodes. We have built services and APIs around [JSON RPC](https://github.com/ethereum/wiki/wiki/JSON-RPC) over HTTPS that you can use with your favorite libraries and frameworks, on Ethereum networks - Mainnet, Ropsten, Rinkeby and Mainnet enhanced with Front-running.
 
-## Authenticating using an APP ID
+# Authenticating using an APP ID
 ZMOK's Ethereum APIs require a valid APP ID to be included with your request traffic. This identifier should be appended to the request URL.
 
 ```sh
 curl https://api.zmok.io/<NETWORK>/<YOUR-APP-ID>
 ```
 
-## Choose a Network
+# Choose a Network
 Use one of these endpoints as your Ethereum client provider.
 
 ?> **NOTE: Be sure to replace YOUR-APP-ID with a APP ID from your ZMOK dashboard**
@@ -28,7 +28,7 @@ Use one of these endpoints as your Ethereum client provider.
 | RINKEBY | [https://api.zmok.io/testnet/YOUR-APP-ID](https://api.zmok.io/testnet/YOUR-APP-ID)<br/>[wss://api.zmok.io/testnet/YOUR-APP-ID](wss://api.zmok.io/testnet/YOUR-APP-ID) |
 | ROPSTEN | [https://api.zmok.io/ropsten/YOUR-APP-ID](https://api.zmok.io/ropsten/YOUR-APP-ID)<br/>[wss://api.zmok.io/ropsten/YOUR-APP-ID](wss://api.zmok.io/ropsten/YOUR-APP-ID) |
 
-## Make Requests
+# Make Requests
 Below is a quick command line example using curl:
 
 
@@ -56,7 +56,7 @@ $ wscat -c wss://api.zmok.io/mainnet/YOUR-APP-ID
 < {"jsonrpc":"2.0","id":1,"result":"0x657abc"}
 ```
 
-### List of all supported methods
+## List of all supported methods
 | Method |
 | ------ |
 |eth_accounts|
@@ -94,7 +94,7 @@ $ wscat -c wss://api.zmok.io/mainnet/YOUR-APP-ID
 |net_version|
 |web3_clientVersion|
 
-### Filter Methods
+## Filter Methods
 | Method |
 | ------ |
 |eth_newFilter|
@@ -102,7 +102,7 @@ $ wscat -c wss://api.zmok.io/mainnet/YOUR-APP-ID
 |eth_getFilterChanges|
 |eth_uninstallFilter|
 
-### Mempool Methods
+## Mempool Methods
 Mempool is a waiting area for the transactions that haven't been added to a block and are still unconfirmed. When an Ethereum node receives a transaction, it will propagate the transaction to peer nodes until a miner approves the transaction and adds it to a new block. Before it’s added to the next block, the pending transaction remains in a staging/waiting area called mempool or txpool.
 
 ?> **INFO: Mempool methods are available for all users and packages. Supported network is only: MAINNET. <br/><br/>MAINNET ARCHIVE and MAINNET FRONT-RUNNING (FR) endpoints do not support mempool methods.**
@@ -113,7 +113,7 @@ Mempool is a waiting area for the transactions that haven't been added to a bloc
 |txpool_inspect|
 |txpool_status|
 
-### Pub/Sub Websocket Methods
+## Pub/Sub Websocket Methods
 ?> **NOTE: Ethereum Pub/Sub subscription support is only supported over "stateful" transports such as WebSocket.**
 
 [Read more about RPC PUB SUB](https://github.com/ethereum/go-ethereum/wiki/RPC-PUB-SUB)
@@ -123,7 +123,7 @@ Mempool is a waiting area for the transactions that haven't been added to a bloc
 |eth_subscribe|
 |eth_unsubscribe|
 
-## Archive data
+# Archive data
 Archive nodes are full nodes running with a special option known as "archive mode". Archive nodes have all the historical data of the blockchain since the genesis block. If you have a need for data from blocks before the last 128 blocks, you’ll want to access an archive node. For example, to use calls like eth_getBalance of an ancient address will only be possible with an archive node, to interact with smart contracts deployed much earlier in the blockchain, etc.
 
 ?> **INFO: Archive calls are available for all users and packages. Supported networks are: MAINNET ARCHIVE, RINKEBY, ROPSTEN. <br/><br/>MAINNET and MAINNET FRONT-RUNNING (FR) endpoints do not support archive calls, because these endpoints are optimized for performance and their nodes contain only the pruned data.**
@@ -141,12 +141,12 @@ If you are interested in inspecting historical data (data outside of the most re
 
 [filename](front-running.md ':include')
 
-## Hello World
+# Hello World
 Ethereum and Web3.js “Hello World”:
 
 [https://github.com/zmok-io/ethbalance](https://github.com/zmok-io/ethbalance)
 
 [filename](performance-tuning.md ':include')
 
-## Support
+# Support
 For support, please email to: [support@zmok.io](mailto:support@zmok.io).

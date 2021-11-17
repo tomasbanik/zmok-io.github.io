@@ -1,6 +1,6 @@
-## Performance Tuning
+# Performance Tuning
 
-### HTTP vs HTTPS
+## HTTP vs HTTPS
 HTTPS requires an initial handshake which can be very slow. The actual amount of data transferred as part of the handshake isn't huge (under 5 kB typically), but for very small requests, this can be quite a bit of overhead. However, once the handshake is done, a very fast form of symmetric encryption is used, so the overhead there is minimal.
 
 ZMOK focuses primarily on speed, so HTTP is also available, but consider using HTTP to read and using HTTPS for the send calls.
@@ -52,7 +52,7 @@ Endpoints:
    Mismatched: 0
 ```
 
-### Fastest block possible
+## Fastest block possible
 To get the latest block as a first consider using Websocket endpoints with subscribe method "newBlockHeaders".
 
 Benchmark of different API providers on how fast they get a new block:
