@@ -93,6 +93,7 @@ $ wscat -c wss://api.zmok.io/mainnet/YOUR-APP-ID
 |net_peerCount|
 |net_version|
 |web3_clientVersion|
+|web3_sha3|
 
 ## Filter Methods
 | Method |
