@@ -106,7 +106,7 @@ $ wscat -c wss://api.zmok.io/mainnet/YOUR-APP-ID
 ## Mempool Methods
 Mempool is a waiting area for the transactions that haven't been added to a block and are still unconfirmed. When an Ethereum node receives a transaction, it will propagate the transaction to peer nodes until a miner approves the transaction and adds it to a new block. Before it’s added to the next block, the pending transaction remains in a staging/waiting area called mempool or txpool.
 
-?> **INFO: Mempool methods are available for all users and packages. Supported network is only: MAINNET. <br/><br/>MAINNET ARCHIVE and MAINNET FRONT-RUNNING (FR) endpoints do not support mempool methods.**
+?> **INFO: Mempool methods are available for all users and packages. MAINNET ARCHIVE endpoints do not support mempool methods.**
 
 | Method |
 | ------ |
@@ -123,6 +123,68 @@ Mempool is a waiting area for the transactions that haven't been added to a bloc
 | ------ |
 |eth_subscribe|
 |eth_unsubscribe|
+
+## Subscribe to incoming (pending) transactions
+Example of how to subscribe to pending transactions from the mempool using Web3.js:
+
+```js
+// checker.js
+
+const Web3 = require('web3');
+
+class TransactionChecker {
+  web3;
+  web3ws;
+  watchAddress;
+  subscription;
+
+  constructor(appId, watchAddress) {
+    this.web3ws = new Web3(new Web3.providers.WebsocketProvider('wss://api.zmok.io/mainnet/' + appId));
+    this.web3 = new Web3(new Web3.providers.HttpProvider('https://api.zmok.io/mainnet/' + appId));
+    this.watchAddress = watchAddress.toLowerCase();
+  }
+
+  subscribe(topic) {
+    this.subscription = this.web3ws.eth.subscribe(topic, (err, res) => {
+      if (err) console.error(err);
+    });
+  }
+
+  watchTransactions() {
+    console.log('Watching all pending transactions...');
+    this.subscription.on('data', (txHash) => {
+      setTimeout(async () => {
+        try {
+          // console.log("txHash: " + txHash)
+          let tx = await this.web3.eth.getTransaction(txHash);
+          if (tx != null) {
+            if (this.watchAddress == tx.to.toLowerCase()) {
+              console.log("found: " + {
+                address: tx.from,
+                value: this.web3.utils.fromWei(tx.value, 'ether'),
+                timestamp: new Date()
+              });
+            } else {
+              console.log({
+                address: tx.from,
+                value: this.web3.utils.fromWei(tx.value, 'ether'),
+                timestamp: new Date()
+              });
+            }
+
+          }
+        } catch (err) {
+          console.error(err);
+        }
+      }, 60000)
+    });
+  }
+}
+
+let txChecker = new TransactionChecker( "YOUR-APP-ID", '0x3685a78D5b3DB714e74Ea53C072c81CAD9434246');
+txChecker.subscribe('pendingTransactions');
+txChecker.watchTransactions();
+```
 
 # Archive data
 Archive nodes are full nodes running with a special option known as "archive mode". Archive nodes have all the historical data of the blockchain since the genesis block. If you have a need for data from blocks before the last 128 blocks, you’ll want to access an archive node. For example, to use calls like eth_getBalance of an ancient address will only be possible with an archive node, to interact with smart contracts deployed much earlier in the blockchain, etc.
