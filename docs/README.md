@@ -211,5 +211,7 @@ Ethereum and Web3.js “Hello World”:
 
 [filename](performance-tuning.md ':include')
 
+[filename](faq.md ':include')
+
 # Support
 For support, please email to: [support@zmok.io](mailto:support@zmok.io).
