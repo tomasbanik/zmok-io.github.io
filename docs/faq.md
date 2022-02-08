@@ -1,4 +1,4 @@
-# FAQ (Frequently Asked Questions)
+# FAQ (Frequently Asked Questions) 
 
 ## How does Front-running work? Can I save on gas fess and be the first at the same time?
 With Front-Running your transaction will be picked and processed by miners very fast, on average in some milliseconds. The next thing is how it will be prioritised in the block.
